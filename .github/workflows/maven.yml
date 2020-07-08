@@ -21,6 +21,8 @@ jobs:
       env:
         #environment variable for decryption
         CREDENTIAL_PASSPHRASE: ${{ secrets.CREDENTIAL_PASSPHRASE }}
+    - name: Set API Credentials
+      env:
         GOOGLE_APPLICATION_CREDENTIALS: $HOME/secrets/spsTeam26.json
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
