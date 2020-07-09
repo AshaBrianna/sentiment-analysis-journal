@@ -21,20 +21,20 @@ public final class JournalTest {
         sentiment = new Journal();
     }
 
-    @Test
-    public void theNegativeTest() throws IOException {
-        float score = sentiment.sentimentAnalysis(negativeText);
-        boolean actual = score < 0.0f;
+    // @Test
+    // public void theNegativeTest() throws IOException {
+    //     float score = sentiment.sentimentAnalysis(negativeText);
+    //     boolean actual = score < 0.0f;
 
-        Assert.assertEquals(true, actual);
-    }
+    //     Assert.assertEquals(true, actual);
+    // }
 
-    @Test
-    public void thePositiveTest() throws IOException {
-        float score = sentiment.sentimentAnalysis(positiveText);
-        boolean actual = score >= 0.0f;
+    // @Test
+    // public void thePositiveTest() throws IOException {
+    //     float score = sentiment.sentimentAnalysis(positiveText);
+    //     boolean actual = score >= 0.0f;
 
-        Assert.assertEquals(true, actual);
-    }
+    //     Assert.assertEquals(true, actual);
+    // }
 
 }
