@@ -2,6 +2,7 @@ package com.google.sps.servlets;
 
 import com.google.gson.Gson;
 import com.google.sps.servlets.Entry;
+import com.google.sps.Journal;
 import java.io.IOException;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -33,7 +34,8 @@ public final class JournalEntryServlet extends HttpServlet {
             long id = entity.getKey().getId();
             String message = (String) entity.getProperty("message");
             long timestamp = (long) entity.getProperty("timestamp");
-            Entry entryToAdd = new Entry(id, message, timestamp);
+            float score = (float) entity.getProperty("score");
+            Entry entryToAdd = new Entry(id, message, timestamp, score);
             entries.add(entryToAdd);
         }
         Gson gson = new Gson();
@@ -42,12 +44,17 @@ public final class JournalEntryServlet extends HttpServlet {
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Journal sentiment = new Journal();
+        
         // Get the input from the form.
         String message = request.getParameter("entry");
         long timestamp = System.currentTimeMillis();
+        float score = sentiment.sentimentAnalysis(message);
+        System.out.println(score);
         Entity entryEntity = new Entity("Entry");
         entryEntity.setProperty("message", message);
         entryEntity.setProperty("timestamp", timestamp);
+        entryEntity.setProperty("score", score);
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         datastore.put(entryEntity);
         response.sendRedirect("/index.html"); //do we want to redirect home after entry is submitted?
