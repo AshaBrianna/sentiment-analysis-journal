@@ -17,10 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Decrypt secret
-      run: ./.github/decrypt_secret.sh
-      env:
-        #environment variable for decryption
-        CREDENTIAL_PASSPHRASE: ${{ secrets.CREDENTIAL_PASSPHRASE }}
+      run: ./.github/put_secret_in_file.sh
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
