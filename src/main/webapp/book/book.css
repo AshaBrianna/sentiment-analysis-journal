@@ -306,19 +306,19 @@
 
 /* Individual style & artwork */
 
-.book-1 .bk-front > div,
-.book-1 .bk-back,
-.book-1 .bk-left,
-.book-1 .bk-front:after {
+.book .bk-front > div,
+.book .bk-back,
+.book .bk-left,
+.book .bk-front:after {
 	background-color: #B2B2A2;
 }
 
-.book-1 .bk-cover {
+.book .bk-cover {
 	background-repeat: no-repeat;
 	background-position: 10px 40px;
 }
 
-.book-1 .bk-cover h2 {
+.book .bk-cover h2 {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -329,35 +329,35 @@
 	text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
 }
 
-.book-1 .bk-cover h2 span:first-child,
-.book-1 .bk-left h2 span:first-child {
+.book .bk-cover h2 span:first-child,
+.book .bk-left h2 span:first-child {
 	text-transform: uppercase;
 	font-weight: 400;
 	font-size: 13px;
 	padding-right: 20px;
 }
 
-.book-1 .bk-cover h2 span:first-child {
+.book .bk-cover h2 span:first-child {
 	display: block;
 }
 
-.book-1 .bk-cover h2 span:last-child,
-.book-1 .bk-left h2 span:last-child {
+.book .bk-cover h2 span:last-child,
+.book .bk-left h2 span:last-child {
 	font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
 } 
 
-.book-1 .bk-content p {
+.book .bk-content p {
 	font-family: Georgia, Times, "Times New Roman", serif;
 }
 
-.book-1 .bk-left h2 {
+.book .bk-left h2 {
 	color: #fff;
 	font-size: 14px;
 	line-height: 40px;
 	text-align: center;
 }
 
-.book-1 .bk-back p {
+.book .bk-back p {
 	color: #fff;
 	font-size: 13px;
 	padding: 40px;
