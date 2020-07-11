@@ -9,6 +9,21 @@
 	perspective: 1800px;
 }
 
+.book {
+	position: absolute;
+	width: 100%;
+	height: 400px;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform .5s;
+	transition: transform .5s;
+}
+
+.book.bk-default:hover {
+	-webkit-transform: rotate3d(0,1,0,35deg);
+	transform: rotate3d(0,1,0,35deg);
+}
+
 .bk-info {
 	position: relative;
 	margin-top: 440px;
@@ -40,23 +55,8 @@
 	background: #d0544e;
 }
 
-.book {
-	position: absolute;
-	width: 100%;
-	height: 400px;
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	-webkit-transition: -webkit-transform .5s;
-	transition: transform .5s;
-}
-
-.book.bk-default:hover {
-	-webkit-transform: rotate3d(0,1,0,35deg);
-	transform: rotate3d(0,1,0,35deg);
-}
-
-.bk-list li .book > div,
-.bk-list li .bk-front > div {
+.book > div,
+.bk-front > div {
 	display: block;
 	position: absolute;
 }
@@ -73,7 +73,7 @@
 	z-index: 10;
 }
 
-.bk-list li .bk-front > div {
+.bk-front > div {
 	z-index: 1;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
@@ -95,7 +95,7 @@
 
 .bk-front,
 .bk-back,
-.bk-list li .bk-front > div {
+.bk-front > div {
 	width: 300px;
 	height: 400px;
 }
@@ -178,13 +178,13 @@
 	background-color: #fff;
 }
 
-.bk-list li .bk-front > div {
+.bk-front > div {
 	border-radius: 0 3px 3px 0;
 	box-shadow: 
 		inset 4px 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.bk-list li .bk-front:after {
+.bk-front:after {
 	content: '';
 	position: absolute;
 	top: 1px;
@@ -193,8 +193,8 @@
 	width: 1px;
 }
 
-.bk-list li .bk-cover:after,
-.bk-list li .bk-back:after {
+.bk-cover:after,
+.bk-back:after {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -205,7 +205,7 @@
 	box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
 }
 
-.bk-list li .bk-back:after {
+.bk-back:after {
 	left: auto;
 	right: 10px;
 }
@@ -258,7 +258,7 @@
 	user-select: none;
 }
 
-.bk-page nav {
+nav {
 	display: block;
 	text-align: center;
 	margin-top: 20px;
@@ -267,7 +267,7 @@
 	cursor: pointer;
 }
 
-.bk-page nav span {
+nav span {
 	display: inline-block;
 	width: 20px;
 	height: 20px;
@@ -278,10 +278,10 @@
 
 /* Individual style & artwork */
 
-.book .bk-front > div,
-.book .bk-back,
-.book .bk-left,
-.book .bk-front:after {
+.bk-front > div,
+.bk-back,
+.bk-left,
+.bk-front:after {
 	background-color: #B2B2A2;
 }
 
