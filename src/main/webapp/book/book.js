@@ -13,7 +13,7 @@ function loadEntries() {
 }
 
 var Books = (function() {
-	var $books = $( '#bk-list > li > div.bk-book' ), booksCount = $books.length;
+	var $books = $( '#bk-list > li > div.book' );
 	function init() {
 		$books.each( function() {	
 			var $book = $( this ),
@@ -21,25 +21,25 @@ var Books = (function() {
 			$page = $book.children( 'div.bk-page' ),
 			$bookview = $parent.find( 'button.bk-bookview' ),
 			$content = $page.children( 'div.bk-content' ), current = 0;
-			$parent.find( 'button.bk-bookback' ).on( 'click', function() {				
+			$parent.find( 'button.bk-bookflip' ).on( 'click', function() {				
 				$bookview.removeClass( 'bk-active' );
 				if( $book.data( 'flip' ) ) {	
-					$book.data( { opened : false, flip : false } ).removeClass( 'bk-viewback' ).addClass( 'bk-bookdefault' );
+					$book.data( { opened : false, flip : false } ).removeClass( 'bk-viewback' ).addClass( 'bk-default' );
 				}
 				else {	
-					$book.data( { opened : false, flip : true } ).removeClass( 'bk-viewinside bk-bookdefault' ).addClass( 'bk-viewback' );
+					$book.data( { opened : false, flip : true } ).removeClass( 'bk-viewinside bk-default' ).addClass( 'bk-viewback' );
 				}				
 			} );
 			$bookview.on( 'click', function() {
 				var $this = $( this );
 				if( $book.data( 'opened' ) ) {
 					$this.removeClass( 'bk-active' );
-					$book.data( { opened : false, flip : false } ).removeClass( 'bk-viewinside' ).addClass( 'bk-bookdefault' );
+					$book.data( { opened : false, flip : false } ).removeClass( 'bk-viewinside' ).addClass( 'bk-default' );
 				}
 				else {
 					$this.addClass( 'bk-active' );
-					$book.data( { opened : true, flip : false } ).removeClass( 'bk-viewback bk-bookdefault' ).addClass( 'bk-viewinside' );
-					$parent.css( 'z-index', booksCount );
+					$book.data( { opened : true, flip : false } ).removeClass( 'bk-viewback bk-default' ).addClass( 'bk-viewinside' );
+					$parent.css( 'z-index', 1);
 					current = 0;
 					$content.removeClass( 'bk-content-current' ).eq( current ).addClass( 'bk-content-current' );
 				}

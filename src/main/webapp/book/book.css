@@ -1,9 +1,5 @@
-.bk-list {
-	list-style: none;
-	position: relative;
-}
-
 .bk-list li {
+    list-style: none;
 	position: relative;
 	width: 300px;
 	float: left;
@@ -16,28 +12,6 @@
 .bk-info {
 	position: relative;
 	margin-top: 440px;
-}
-
-.bk-info h3 {
-	padding: 25px 0 10px;
-	margin-bottom: 20px;
-	border-bottom: 1px solid rgba(0,0,0,0.3);
-	font-size: 26px;
-}
-
-.bk-info h3 span:first-child {
-	font-size: 14px;
-	font-weight: 400;
-	text-transform: uppercase;
-	padding-bottom: 5px;
-	display: block;
-	color: #777;
-}
-
-.bk-info p {
-	line-height: 24px;
-	color: #444;
-	min-height: 160px;
 }
 
 .bk-info button {
@@ -66,7 +40,7 @@
 	background: #d0544e;
 }
 
-.bk-list li .bk-book {
+.book {
 	position: absolute;
 	width: 100%;
 	height: 400px;
@@ -76,18 +50,18 @@
 	transition: transform .5s;
 }
 
-.bk-list li .bk-book.bk-bookdefault:hover {
+.book.bk-default:hover {
 	-webkit-transform: rotate3d(0,1,0,35deg);
 	transform: rotate3d(0,1,0,35deg);
 }
 
-.bk-list li .bk-book > div,
+.bk-list li .book > div,
 .bk-list li .bk-front > div {
 	display: block;
 	position: absolute;
 }
 
-.bk-list li .bk-front {
+.bk-front {
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	-webkit-transform-origin: 0% 50%;
@@ -107,7 +81,7 @@
 	transform-style: preserve-3d;
 }
 
-.bk-list li .bk-page {
+.bk-page {
 	-webkit-transform: translate3d(0,0,19px);
 	transform: translate3d(0,0,19px);
 	display: none;
@@ -119,21 +93,21 @@
 	z-index: 9;
 }
 
-.bk-list li .bk-front,
-.bk-list li .bk-back,
+.bk-front,
+.bk-back,
 .bk-list li .bk-front > div {
 	width: 300px;
 	height: 400px;
 }
 
-.bk-list li .bk-left,
-.bk-list li .bk-right {
+.bk-left,
+.bk-right {
 	width: 40px;
 	left: -20px;
 }
 
-.bk-list li .bk-top,
-.bk-list li .bk-bottom {
+.bk-top,
+.bk-bottom {
 	width: 295px;
 	height: 40px;
 	top: -15px;
@@ -141,20 +115,20 @@
 	backface-visibility: hidden;
 }
 
-.bk-list li .bk-back {
+.bk-back {
 	-webkit-transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
 	transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
 	box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
 	border-radius: 3px 0 0 3px;
 }
 
-.bk-list li .bk-cover-back {
+.bk-cover-back {
 	background-color: #000;
 	-webkit-transform: rotate3d(0,1,0,-179deg);
 	transform: rotate3d(0,1,0,-179deg);
 }
 
-.bk-list li .bk-right {
+.bk-right {
 	height: 390px;
 	top: 5px;
 	-webkit-transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
@@ -164,45 +138,43 @@
 	backface-visibility: hidden;
 }
 
-.bk-list li .bk-left {
+.bk-left {
 	height: 400px;
 	-webkit-transform: rotate3d(0,1,0,-90deg);
 	transform: rotate3d(0,1,0,-90deg);
 }
 
-.bk-list li .bk-top {
+.bk-top {
 	-webkit-transform: rotate3d(1,0,0,90deg);
 	transform: rotate3d(1,0,0,90deg);
 }
 
-.bk-list li .bk-bottom {
+.bk-bottom {
 	-webkit-transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
 	transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
 }
 
 /* Transform classes */
 
-.bk-list li .bk-viewinside .bk-front {
+.bk-viewinside .bk-front {
 	-webkit-transform: translate3d(0,0,20px) rotate3d(0,1,0,-160deg);
 	transform: translate3d(0,0,20px) rotate3d(0,1,0,-160deg);
 }
 
-.bk-list li .bk-book.bk-viewinside {
+.book.bk-viewinside {
 	-webkit-transform: translate3d(0,0,150px) rotate3d(0,1,0,0deg);
 	transform: translate3d(0,0,150px) rotate3d(0,1,0,0deg);
 }
 
-.bk-list li .bk-book.bk-viewback {
+ .book.bk-viewback {
 	-webkit-transform: translate3d(0,0,0px) rotate3d(0,1,0,180deg);
 	transform: translate3d(0,0,0px) rotate3d(0,1,0,180deg);
 }
 
-/* Main colors and content */
-
-.bk-list li .bk-page,
-.bk-list li .bk-right,
-.bk-list li .bk-top,
-.bk-list li .bk-bottom {
+.bk-page,
+.bk-right,
+.bk-top,
+.bk-bottom {
 	background-color: #fff;
 }
 
@@ -313,12 +285,12 @@
 	background-color: #B2B2A2;
 }
 
-.book .bk-cover {
+.bk-cover {
 	background-repeat: no-repeat;
 	background-position: 10px 40px;
 }
 
-.book .bk-cover h2 {
+.bk-cover h2 {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -329,35 +301,35 @@
 	text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
 }
 
-.book .bk-cover h2 span:first-child,
-.book .bk-left h2 span:first-child {
+.bk-cover h2 span:first-child,
+.bk-left h2 span:first-child {
 	text-transform: uppercase;
 	font-weight: 400;
 	font-size: 13px;
 	padding-right: 20px;
 }
 
-.book .bk-cover h2 span:first-child {
+.bk-cover h2 span:first-child {
 	display: block;
 }
 
-.book .bk-cover h2 span:last-child,
-.book .bk-left h2 span:last-child {
+.bk-cover h2 span:last-child,
+.bk-left h2 span:last-child {
 	font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
 } 
 
-.book .bk-content p {
+.bk-content p {
 	font-family: Georgia, Times, "Times New Roman", serif;
 }
 
-.book .bk-left h2 {
+.bk-left h2 {
 	color: #fff;
 	font-size: 14px;
 	line-height: 40px;
 	text-align: center;
 }
 
-.book .bk-back p {
+.bk-back p {
 	color: #fff;
 	font-size: 13px;
 	padding: 40px;
