@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Decrypt secret
-      run: ./.github/decrypt_secret.sh
+      run: ./decrypt_secret.sh
       env:
         #environment variable for decryption
         CREDENTIAL_PASSPHRASE: ${{ secrets.CREDENTIAL_PASSPHRASE }}
@@ -26,6 +26,8 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Check decryption
+      run: head -n 3 $HOME/secrets/spsTeam26.json
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       #set Google Application Credentials
