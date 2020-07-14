@@ -1,9 +1,7 @@
-.bk-list {
-	list-style: none;
-	position: relative;
-}
+/* BASIC POSITION FORMATTING & SOME TRANSFORMATION*/
 
 .bk-list li {
+    list-style: none;
 	position: relative;
 	width: 300px;
 	float: left;
@@ -13,60 +11,7 @@
 	perspective: 1800px;
 }
 
-.bk-info {
-	position: relative;
-	margin-top: 440px;
-}
-
-.bk-info h3 {
-	padding: 25px 0 10px;
-	margin-bottom: 20px;
-	border-bottom: 1px solid rgba(0,0,0,0.3);
-	font-size: 26px;
-}
-
-.bk-info h3 span:first-child {
-	font-size: 14px;
-	font-weight: 400;
-	text-transform: uppercase;
-	padding-bottom: 5px;
-	display: block;
-	color: #777;
-}
-
-.bk-info p {
-	line-height: 24px;
-	color: #444;
-	min-height: 160px;
-}
-
-.bk-info button {
-	background: #FC756F;
-	border: none;
-	color: #fff;
-	display: inline-block;
-	padding: 3px 15px;
-	font-weight: 700;
-	font-size: 14px;
-	text-transform: uppercase;
-	cursor: pointer;
-	margin-right: 4px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,0.15);
-}
-
-.bk-info button.bk-active,
-.bk-info button:active {
-	box-shadow: 
-		0 1px 0 rgba(255, 255, 255, 0.8), 
-		inset 0 -1px 1px rgba(0,0,0,0.2);
-}
-
-.no-touch .bk-info button:hover,
-.bk-info button.bk-active {
-	background: #d0544e;
-}
-
-.bk-list li .bk-book {
+.book {
 	position: absolute;
 	width: 100%;
 	height: 400px;
@@ -76,143 +21,95 @@
 	transition: transform .5s;
 }
 
-.bk-list li .bk-book.bk-bookdefault:hover {
+.book.bk-default:hover {
 	-webkit-transform: rotate3d(0,1,0,35deg);
 	transform: rotate3d(0,1,0,35deg);
 }
 
-.bk-list li .bk-book > div,
-.bk-list li .bk-front > div {
+.book > div,
+.bk-front > div {
 	display: block;
 	position: absolute;
 }
 
-.bk-list li .bk-front {
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	-webkit-transform-origin: 0% 50%;
-	transform-origin: 0% 50%;
-	-webkit-transition: -webkit-transform .5s;
-	transition: transform .5s;
-	-webkit-transform: translate3d(0,0,20px);
-	transform: translate3d(0,0,20px);
-	z-index: 10;
+div.bookItem {
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
-.bk-list li .bk-front > div {
-	z-index: 1;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-}
-
-.bk-list li .bk-page {
-	-webkit-transform: translate3d(0,0,19px);
-	transform: translate3d(0,0,19px);
-	display: none;
-	width: 295px;
-	height: 390px;
-	top: 5px;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	z-index: 9;
-}
-
-.bk-list li .bk-front,
-.bk-list li .bk-back,
-.bk-list li .bk-front > div {
-	width: 300px;
-	height: 400px;
-}
-
-.bk-list li .bk-left,
-.bk-list li .bk-right {
-	width: 40px;
-	left: -20px;
-}
-
-.bk-list li .bk-top,
-.bk-list li .bk-bottom {
-	width: 295px;
-	height: 40px;
-	top: -15px;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.bk-list li .bk-back {
-	-webkit-transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
-	transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
-	box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
-	border-radius: 3px 0 0 3px;
-}
-
-.bk-list li .bk-cover-back {
-	background-color: #000;
-	-webkit-transform: rotate3d(0,1,0,-179deg);
-	transform: rotate3d(0,1,0,-179deg);
-}
-
-.bk-list li .bk-right {
-	height: 390px;
-	top: 5px;
-	-webkit-transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
-	-moz-transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
-	transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.bk-list li .bk-left {
-	height: 400px;
-	-webkit-transform: rotate3d(0,1,0,-90deg);
-	transform: rotate3d(0,1,0,-90deg);
-}
-
-.bk-list li .bk-top {
-	-webkit-transform: rotate3d(1,0,0,90deg);
-	transform: rotate3d(1,0,0,90deg);
-}
-
-.bk-list li .bk-bottom {
-	-webkit-transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
-	transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
-}
-
-/* Transform classes */
-
-.bk-list li .bk-viewinside .bk-front {
-	-webkit-transform: translate3d(0,0,20px) rotate3d(0,1,0,-160deg);
-	transform: translate3d(0,0,20px) rotate3d(0,1,0,-160deg);
-}
-
-.bk-list li .bk-book.bk-viewinside {
-	-webkit-transform: translate3d(0,0,150px) rotate3d(0,1,0,0deg);
-	transform: translate3d(0,0,150px) rotate3d(0,1,0,0deg);
-}
-
-.bk-list li .bk-book.bk-viewback {
-	-webkit-transform: translate3d(0,0,0px) rotate3d(0,1,0,180deg);
-	transform: translate3d(0,0,0px) rotate3d(0,1,0,180deg);
-}
-
-/* Main colors and content */
-
-.bk-list li .bk-page,
-.bk-list li .bk-right,
-.bk-list li .bk-top,
-.bk-list li .bk-bottom {
+.bk-page,
+.bk-right,
+.bk-top,
+.bk-bottom {
 	background-color: #fff;
 }
 
-.bk-list li .bk-front > div {
+
+/* Aspects of book cover */
+
+.bk-front > div,
+.bk-back,
+.bk-left,
+.bk-front:after {
+	background-color: #B2B2A2;
+}
+
+.bk-cover {
+	background-repeat: no-repeat;
+	background-position: 10px 40px;
+}
+
+.bk-cover h2 {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding: 30px;
+	background: rgba(255,255,255,0.2);
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+}
+
+.bk-cover h2 span:first-child,
+.bk-left h2 span:first-child {
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 13px;
+	padding-right: 20px;
+}
+
+.bk-cover h2 span:first-child {
+	display: block;
+}
+
+.bk-cover h2 span:last-child,
+.bk-left h2 span:last-child {
+	font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+}
+
+.bk-left h2 {
+	color: #fff;
+	font-size: 14px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.bk-back p {
+	color: #fff;
+	font-size: 13px;
+	padding: 40px;
+	text-align: center;
+	font-weight: 700;
+}
+
+.bk-front > div {
 	border-radius: 0 3px 3px 0;
 	box-shadow: 
 		inset 4px 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.bk-list li .bk-front:after {
+.bk-front:after {
 	content: '';
 	position: absolute;
 	top: 1px;
@@ -221,8 +118,8 @@
 	width: 1px;
 }
 
-.bk-list li .bk-cover:after,
-.bk-list li .bk-back:after {
+.bk-cover:after,
+.bk-back:after {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -233,7 +130,7 @@
 	box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
 }
 
-.bk-list li .bk-back:after {
+.bk-back:after {
 	left: auto;
 	right: 10px;
 }
@@ -246,6 +143,115 @@
 	transform-origin: 0 0;
 	-webkit-transform: rotate(90deg) translateY(-40px);
 	transform: rotate(90deg) translateY(-40px);
+}
+
+.bk-front,
+.bk-back,
+.bk-front > div {
+	width: 300px;
+	height: 400px;
+}
+
+.bk-top,
+.bk-bottom {
+	width: 295px;
+	height: 40px;
+	top: -15px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.bk-back {
+	-webkit-transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
+	transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
+	box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+	border-radius: 3px 0 0 3px;
+}
+
+.bk-cover-back {
+	background-color: #000;
+	-webkit-transform: rotate3d(0,1,0,-179deg);
+	transform: rotate3d(0,1,0,-179deg);
+}
+
+.bk-right {
+    width: 40px;
+	left: -20px;
+	height: 390px;
+	top: 5px;
+	-webkit-transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
+	-moz-transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
+	transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.bk-left {
+    width: 40px;
+	left: -20px;
+	height: 400px;
+	-webkit-transform: rotate3d(0,1,0,-90deg);
+	transform: rotate3d(0,1,0,-90deg);
+}
+
+.bk-top {
+	-webkit-transform: rotate3d(1,0,0,90deg);
+	transform: rotate3d(1,0,0,90deg);
+}
+
+.bk-bottom {
+	-webkit-transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
+	transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
+}
+
+.bk-viewinside .bk-front {
+	-webkit-transform: translate3d(0,0,20px) rotate3d(0,1,0,-160deg);
+	transform: translate3d(0,0,20px) rotate3d(0,1,0,-160deg);
+}
+
+.book.bk-viewinside {
+	-webkit-transform: translate3d(0,0,150px) rotate3d(0,1,0,0deg);
+	transform: translate3d(0,0,150px) rotate3d(0,1,0,0deg);
+}
+
+.book.bk-viewback {
+	-webkit-transform: translate3d(0,0,0px) rotate3d(0,1,0,180deg);
+	transform: translate3d(0,0,0px) rotate3d(0,1,0,180deg);
+}
+
+.bk-front {
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform-origin: 0% 50%;
+	transform-origin: 0% 50%;
+	-webkit-transition: -webkit-transform .5s;
+	transition: transform .5s;
+	-webkit-transform: translate3d(0,0,20px);
+	transform: translate3d(0,0,20px);
+	z-index: 10;
+}
+
+.bk-front > div {
+	z-index: 1;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+
+/* BOOK INNER PAGES */
+
+.bk-page {
+	-webkit-transform: translate3d(0,0,19px);
+	transform: translate3d(0,0,19px);
+	display: none;
+	width: 295px;
+	height: 390px;
+	top: 5px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	z-index: 9;
 }
 
 .bk-content {
@@ -284,9 +290,10 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+    font-family: Georgia, Times, "Times New Roman", serif;
 }
 
-.bk-page nav {
+nav {
 	display: block;
 	text-align: center;
 	margin-top: 20px;
@@ -295,7 +302,7 @@
 	cursor: pointer;
 }
 
-.bk-page nav span {
+nav span {
 	display: inline-block;
 	width: 20px;
 	height: 20px;
@@ -304,69 +311,33 @@
 	border-radius: 50%;
 }
 
-/* Individual style & artwork */
 
-.book-1 .bk-front > div,
-.book-1 .bk-back,
-.book-1 .bk-left,
-.book-1 .bk-front:after {
-	background-color: #B2B2A2;
-}
+/* FLIP & OPEN BUTTONS */
 
-.book-1 .bk-cover {
-	background-repeat: no-repeat;
-	background-position: 10px 40px;
-}
-
-.book-1 .bk-cover h2 {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	padding: 30px;
-	background: rgba(255,255,255,0.2);
+.bk-info button {
+    position: relative;
+	margin-top: 440px;
+	background: #FC756F;
+	border: none;
 	color: #fff;
-	text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
-}
-
-.book-1 .bk-cover h2 span:first-child,
-.book-1 .bk-left h2 span:first-child {
-	text-transform: uppercase;
-	font-weight: 400;
-	font-size: 13px;
-	padding-right: 20px;
-}
-
-.book-1 .bk-cover h2 span:first-child {
-	display: block;
-}
-
-.book-1 .bk-cover h2 span:last-child,
-.book-1 .bk-left h2 span:last-child {
-	font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
-} 
-
-.book-1 .bk-content p {
-	font-family: Georgia, Times, "Times New Roman", serif;
-}
-
-.book-1 .bk-left h2 {
-	color: #fff;
-	font-size: 14px;
-	line-height: 40px;
-	text-align: center;
-}
-
-.book-1 .bk-back p {
-	color: #fff;
-	font-size: 13px;
-	padding: 40px;
-	text-align: center;
+	display: inline-block;
+	padding: 3px 15px;
 	font-weight: 700;
+	font-size: 14px;
+	text-transform: uppercase;
+	cursor: pointer;
+	margin-right: 4px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.15);
 }
 
-div.bookItem {
-    display: flex;
-    align-items: center;
-    justify-content: center
+.bk-info button.bk-active,
+.bk-info button:active {
+	box-shadow: 
+		0 1px 0 rgba(255, 255, 255, 0.8), 
+		inset 0 -1px 1px rgba(0,0,0,0.2);
+}
+
+.no-touch .bk-info button:hover,
+.bk-info button.bk-active {
+	background: #d0544e;
 }

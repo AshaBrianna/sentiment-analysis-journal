@@ -14,7 +14,7 @@ function loadEntries() {
 
 var Books = (function() {
     function init() {
-        var $book = $( '#bk-list > li > div.bk-book' ),
+        var $book = $( '#bk-list > li > div.book' ),
 		$parent = $book.parent(),
 		$page = $book.children( 'div.bk-page' ),
 		$bookview = $parent.find( 'button.bk-bookview' ),
