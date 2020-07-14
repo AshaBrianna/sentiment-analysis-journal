@@ -29,7 +29,6 @@ jobs:
     - name: Check decryption
       run: head -n 3 $HOME/secrets/spsTeam26.json
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-      #set Google Application Credentials
-      env:
-        GOOGLE_APPLICATION_CREDENTIALS: $HOME/secrets/spsTeam26.json
+      # Set GAC on the command line to get $HOME interpreted. 
+      run: GOOGLE_APPLICATION_CREDENTIALS=$HOME/secrets/spsTeam26.json mvn -B package --file pom.xml
+
