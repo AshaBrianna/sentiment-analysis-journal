@@ -32,4 +32,4 @@ jobs:
       run: mvn -B package --file pom.xml
       #set Google Application Credentials
       env:
-        GOOGLE_APPLICATION_CREDENTIALS: "$HOME/secrets/spsTeam26.json"
+        GOOGLE_APPLICATION_CREDENTIALS: $HOME/secrets/spsTeam26.json
