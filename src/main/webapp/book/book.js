@@ -13,14 +13,14 @@ function loadEntries() {
 }
 
 var Books = (function() {
-	var $book = $( '#bk-list > li > div.book' );
-	function init() {
+    function init() {
+        var $book = $( '#bk-list > li > div.book' ),
 		$parent = $book.parent(),
 		$page = $book.children( 'div.bk-page' ),
 		$bookview = $parent.find( 'button.bk-bookview' ),
 		$content = $page.children( 'div.bk-content' ), current = 0;
-		$parent.find( 'button.bk-bookflip' ).on( 'click', function() {				
-			$bookview.removeClass( 'bk-active' );
+		$parent.find( 'button.bk-bookback' ).on( 'click', function() {				
+		    $bookview.removeClass( 'bk-active' );
 			if( $book.data( 'flip' ) ) {	
 				$book.data( { opened : false, flip : false } ).removeClass( 'bk-viewback' ).addClass( 'bk-default' );
 			}
@@ -29,14 +29,14 @@ var Books = (function() {
 			}				
 		} );
 		$bookview.on( 'click', function() {
-		    var $this = $( this );
-		    if( $book.data( 'opened' ) ) {
-			    $this.removeClass( 'bk-active' );
-			    $book.data( { opened : false, flip : false } ).removeClass( 'bk-viewinside' ).addClass( 'bk-default' );
-		    }
-		    else {
-			    $this.addClass( 'bk-active' );
-			    $book.data( { opened : true, flip : false } ).removeClass( 'bk-viewback bk-default' ).addClass( 'bk-viewinside' );
+			var $this = $( this );				
+			if( $book.data( 'opened' ) ) {
+				$this.removeClass( 'bk-active' );
+				$book.data( { opened : false, flip : false } ).removeClass( 'bk-viewinside' ).addClass( 'bk-default' );
+			}
+			else {
+				$this.addClass( 'bk-active' );
+				$book.data( { opened : true, flip : false } ).removeClass( 'bk-viewback bk-default' ).addClass( 'bk-viewinside' );
 				$parent.css( 'z-index', 1);
 				current = 0;
 				$content.removeClass( 'bk-content-current' ).eq( current ).addClass( 'bk-content-current' );
@@ -44,7 +44,7 @@ var Books = (function() {
 		} );
 		if( $content.length > 1 ) {
 			var $navPrev = $( '<span class="bk-page-prev">&lt;</span>' ),
-            $navNext = $( '<span class="bk-page-next">&gt;</span>' );	
+			$navNext = $( '<span class="bk-page-next">&gt;</span>' );	
 			$page.append( $( '<nav></nav>' ).append( $navPrev, $navNext ) );
             $navPrev.on( 'click', function() {
 				if( current > 0 ) {
@@ -60,7 +60,7 @@ var Books = (function() {
 				}
 				return false;
 			} );
-		}			
+		}
 	}
 	return { init : init };
 })();
