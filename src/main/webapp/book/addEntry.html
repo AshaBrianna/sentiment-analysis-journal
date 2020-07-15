@@ -3,9 +3,12 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title> Journal Entry Main Page</title>
+	<title> Add Journal Entry</title>
 	<link rel="stylesheet" href="addEntry.css">
 	</link>
+    <link href= 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' rel='stylesheet'> 
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" > </script>  
+    <script src= "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" > </script> 
 </head>
 
 <body>
@@ -18,7 +21,7 @@
 					<h6>TODO: User's Name Here</h6>
 				</header>
 				<article>
-					<h2 class="chapter-title">Today's Journal Entry</h2>
+					<h2 class="chapter-title">Add a Journal Entry</h2>
 					<p>
 						Take a moment to reflect on your day. Feel free to let your thoughts drift to review your week,
 						month, or even year. Feeling extra philosophical? Contemplate life! Don't set limitations on
@@ -38,12 +41,23 @@
                     <br>
 					<br>
 						<form action="/journal" method="POST">
-							<textarea type="text" id="result" name="message" placeholder = "Dear Diary, ..."></textarea>
+                            Date: <input type="text" id="my_date_picker" name="date" placeholder = "Select date..."> 
+                                <script> 
+                                    $(document).ready(function() { 
+                                        $(function() { 
+                                            $( "#my_date_picker" ).datepicker(); 
+                                        }); 
+                                    }) 
+                                </script>
+                            </input>
                             <br>
-							<input type="submit" value="Submit">
+						    <textarea type="text" id="result" name="message" placeholder = "Dear Diary ..."></textarea>
+                            <br>
+						    <input type="submit" value="Submit">
                         </form>
-						<a href="/book/index.html"> <span>Return to Home</span> </a>
-					
+                        <br>
+                        <br>
+						<button> <a href="index.html"> Return to Home </a> </button>
 				</article>
 				<footer>
 					<ol id="page-numbers">
