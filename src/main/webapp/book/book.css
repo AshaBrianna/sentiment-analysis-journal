@@ -1,4 +1,6 @@
-/* BASIC POSITION FORMATTING & SOME TRANSFORMATION*/
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text:400,700,900,400italic,700italic,900italic|Playfair+Display:400,700,900,400italic,700italic,900italic|Rock+Salt:400);
+
+/* BASIC POSITION FORMATTING & SOME TRANSFORMATION */
 
 .bk-list li {
     list-style: none;
@@ -340,4 +342,28 @@ nav span {
 .no-touch .bk-info button:hover,
 .bk-info button.bk-active {
 	background: #d0544e;
+}
+
+/* INDEX PAGE */
+.chapter-title {
+    font: 30px/1 'Playfair Display', sans-serif;
+    letter-spacing: 0.125em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+li.indexItem{
+    list-style-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA2NCA2NCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNjQgNjQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCiAgICA8Zz4NCiAgICAJPHBhdGggZD0iTTAsMzJMMzIsMGwzMiwzMkwzMiw2NEwwLDMyeiBNOCwzMmwyNCwyNGwyNC0yNEwzMiw4TDgsMzJ6IE0xNiwzMmwxNi0xNmwxNiwxNkwzMiw0OEwxNiwzMnogTTI0LDMybDgsOGw4LThsLTgtOEwyNCwzMnoiIC8+DQogICAgPC9nPg0KPC9zdmc+);
+}
+
+.indexItem > a{
+  background-color: rgba(178, 178, 162, 0.446);
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.indexItem > a:hover, a:active {
+  background-color: rgba(178, 178, 162, 0.809);
 }
