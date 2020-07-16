@@ -1,53 +1,73 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title> Journal Entry Main Page</title>
-        <link rel="stylesheet" href="addEntry.css"></link>
-    </head>
-    <body>
-        <div id="wrapper">
-            <div id="container">
-                <section class="open-book">
-                    <header>
-                        <h1>Personal Journal</h1>
-                        <h6>TODO: User's Name Here</h6>
-                    </header>
-                    <article>
-                        <h2 class="chapter-title">Today's Journal Entry</h2>
-                        <p>
-                            Dear Diary,
-                            <br>
-                            <form action="/journal" method="POST">
-                                <textarea type="text" id="result" name="message" placeholder = "Share how today went..." style = "height:200px"></textarea>
-                                <input type="submit" value="Submit">
-                            </form>
-                            <div>
-                                <a href="/book.html">
-                                    <div class="buttontext">
-                                        <span>Return to Home</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </p>
-                    </article>
-                    <footer>
-                        <ol id="page-numbers">
-                            <li>1</li>
-                            <li>2</li>
-                        </ol>
-                    </footer>
-                </section>
-            </div>
-        </div>
 
-    <div>
-        <a href="/book.html" >
-            <div class="buttontext">
-                <span>Return to Home</span>
-            </div>
-        </a>
-    </div> 
-    
-    </body>
+<head>
+	<meta charset="UTF-8">
+	<title> Add Journal Entry</title>
+	<link rel="stylesheet" href="addEntry.css">
+	</link>
+    <link href= 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' rel='stylesheet'> 
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" > </script>  
+    <script src= "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" > </script> 
+</head>
+
+<body>
+	<br><br><br>
+	<div id="wrapper">
+		<div id="container">
+			<section class="open-book">
+				<header>
+					<h1>Personal Journal</h1>
+					<h6>TODO: User's Name Here</h6>
+				</header>
+				<article>
+					<h2 class="chapter-title">Add a Journal Entry</h2>
+					<p>
+						Take a moment to reflect on your day. Feel free to let your thoughts drift to review your week,
+						month, or even year. Feeling extra philosophical? Contemplate life! Don't set limitations on
+						your or attempt to constrain your emotions. Just let them flow onto the page.
+					</p>
+					<p>
+						Understandably, some people feel uncomfortable putting their personal thoughts and experiences
+						into words. As your personal
+						sentiment analysis journal, I'm here to help you. I'm not human. I can't judge you, but I can
+						help!
+					</p>
+					<p>
+						In order to enable me to best assist you, try to journal once a day. The more entries I have to
+						analyze the better! More entries means you'll be provided with more relevant
+						resources. Now, stop reading this, and start journaling!
+					</p>
+                    <br>
+					<br>
+						<form action="/journal" method="POST">
+                            Date: <input type="text" id="my_date_picker" name="date" placeholder = "Select date..."> 
+                                <script> 
+                                    $(document).ready(function() { 
+                                        $(function() { 
+                                            $( "#my_date_picker" ).datepicker(); 
+                                        }); 
+                                    }) 
+                                </script>
+                            </input>
+                            <br>
+						    <textarea type="text" id="result" name="message" placeholder = "Dear Diary ..."></textarea>
+                            <br>
+						    <input type="submit" value="Submit">
+                        </form>
+                        <br>
+                        <br>
+						<button> <a href="index.html"> Return to Home </a> </button>
+				</article>
+				<footer>
+					<ol id="page-numbers">
+						<li>1</li>
+						<li>2</li>
+					</ol>
+				</footer>
+			</section>
+		</div>
+	</div>
+</body>
+
 </html>
