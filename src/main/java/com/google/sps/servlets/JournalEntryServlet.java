@@ -1,7 +1,7 @@
 package com.google.sps.servlets;
 
 import com.google.gson.Gson;
-import com.google.sps.Scoring;
+// import com.google.sps.Scoring;
 import com.google.sps.Entry;
 import java.io.IOException;
 import com.google.appengine.api.datastore.DatastoreService;
@@ -44,10 +44,10 @@ public final class JournalEntryServlet extends HttpServlet {
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {        
-        Scoring sentiment = new Scoring();        
+        // Scoring sentiment = new Scoring();        
         String message = request.getParameter("message");
         long timestamp = System.currentTimeMillis();
-        double score = sentiment.sentimentAnalysis(message);
+        double score = Entry.sentimentAnalysis(message);
         System.out.println(score);
         Entity entryEntity = new Entity("Entry");
         entryEntity.setProperty("message", message);

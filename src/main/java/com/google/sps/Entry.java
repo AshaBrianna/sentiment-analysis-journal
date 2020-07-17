@@ -21,4 +21,19 @@ public class Entry {
         this.score = score;
     }
 
+    public static double sentimentAnalysis(String aMessage) throws IOException {
+        LanguageServiceClient language = LanguageServiceClient.create();
+        Document doc = Document.newBuilder().setContent(aMessage).setType(Document.Type.PLAIN_TEXT).build();
+        AnalyzeSentimentResponse response = language.analyzeSentiment(doc);
+        Sentiment sentiment = response.getDocumentSentiment();
+        float score = 0;
+        if (sentiment == null) {
+            score = 0;
+        } else {
+            score = sentiment.getScore();
+        }
+        double doubleScore = (double)score;
+        return doubleScore;
+    }
+
 }

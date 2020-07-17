@@ -11,31 +11,24 @@
 
  @RunWith(JUnit4.class)
  public final class JournalTest {
-     private static final String positiveText = "I am happy and great!";
-     private static final String negativeText = "I am feeling sad and depressed"; 
+    private static final String positiveText = "I am happy and great!";
+    private static final String negativeText = "I am feeling sad and depressed"; 
 
-     private Scoring sentiment;
+    @Test
+    public void theNegativeTest() throws IOException {
+        double score = Entry.sentimentAnalysis(negativeText);
+        boolean actual = score < 0.0f;
 
-     @Before
-     public void setUp() {
-         sentiment = new Scoring();
-     }
+        Assert.assertEquals(true, actual);
+    }
 
-     @Test
-     public void theNegativeTest() throws IOException {
-         double score = sentiment.sentimentAnalysis(negativeText);
-         boolean actual = score < 0.0f;
+    @Test
+    public void thePositiveTest() throws IOException {
+        double score = Entry.sentimentAnalysis(positiveText);
+        boolean actual = score >= 0.0f;
 
-         Assert.assertEquals(true, actual);
-     }
+        Assert.assertEquals(true, actual);
+    }
 
-     @Test
-     public void thePositiveTest() throws IOException {
-         double score = sentiment.sentimentAnalysis(positiveText);
-         boolean actual = score >= 0.0f;
-
-         Assert.assertEquals(true, actual);
-     }
-
- } 
+} 
 
