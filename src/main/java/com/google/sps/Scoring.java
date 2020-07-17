@@ -6,9 +6,9 @@ import com.google.cloud.language.v1.AnalyzeSentimentResponse;
 import com.google.cloud.language.v1.Sentiment;
 import java.io.IOException;
 
-public class Journal {
+public class Scoring {
 
-    public Float sentimentAnalysis(String message) throws IOException {
+    public static double sentimentAnalysis(String message) throws IOException {
         LanguageServiceClient language = LanguageServiceClient.create();
         Document doc = Document.newBuilder().setContent(message).setType(Document.Type.PLAIN_TEXT).build();
         AnalyzeSentimentResponse response = language.analyzeSentiment(doc);
@@ -19,8 +19,7 @@ public class Journal {
         } else {
             score = sentiment.getScore();
         }
-
-        return score;
+        double doubleScore = (double)score;
+        return doubleScore;
     }
-
 }

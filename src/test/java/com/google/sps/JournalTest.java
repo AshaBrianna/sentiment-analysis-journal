@@ -14,16 +14,16 @@
      private static final String positiveText = "I am happy and great!";
      private static final String negativeText = "I am feeling sad and depressed"; 
 
-     private Journal sentiment;
+     private Scoring sentiment;
 
      @Before
      public void setUp() {
-         sentiment = new Journal();
+         sentiment = new Scoring();
      }
 
      @Test
      public void theNegativeTest() throws IOException {
-         float score = sentiment.sentimentAnalysis(negativeText);
+         double score = sentiment.sentimentAnalysis(negativeText);
          boolean actual = score < 0.0f;
 
          Assert.assertEquals(true, actual);
@@ -31,7 +31,7 @@
 
      @Test
      public void thePositiveTest() throws IOException {
-         float score = sentiment.sentimentAnalysis(positiveText);
+         double score = sentiment.sentimentAnalysis(positiveText);
          boolean actual = score >= 0.0f;
 
          Assert.assertEquals(true, actual);
