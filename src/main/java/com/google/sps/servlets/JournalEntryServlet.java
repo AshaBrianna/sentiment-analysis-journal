@@ -1,7 +1,6 @@
 package com.google.sps.servlets;
 
 import com.google.gson.Gson;
-// import com.google.sps.Scoring;
 import com.google.sps.Entry;
 import java.io.IOException;
 import com.google.appengine.api.datastore.DatastoreService;
@@ -44,7 +43,6 @@ public final class JournalEntryServlet extends HttpServlet {
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {        
-        // Scoring sentiment = new Scoring();        
         String message = request.getParameter("message");
         long timestamp = System.currentTimeMillis();
         double score = Entry.sentimentAnalysis(message);
@@ -55,7 +53,6 @@ public final class JournalEntryServlet extends HttpServlet {
         entryEntity.setProperty("score", score);
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         datastore.put(entryEntity);
-        response.sendRedirect("/index.html"); //do we want to redirect home after entry is submitted?
-
+        response.sendRedirect("/index.html");
     }
 }
