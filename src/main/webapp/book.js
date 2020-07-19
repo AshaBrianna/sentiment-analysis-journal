@@ -1,6 +1,3 @@
-
-
-
 function loadEntries(callback) {
     fetch('/journal').then(response => response.json()).then((entries) => { // Fetch = RPC request to server and waits then gets response
         const entriesListElement = document.getElementById('entry-container'); //entry-container is a 'div'
