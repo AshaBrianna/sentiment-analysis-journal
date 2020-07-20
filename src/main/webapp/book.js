@@ -7,6 +7,7 @@ function loadEntries(callback) {
             thePage.className += 'bk-content';
             thePage.innerHTML = entry.message;
             entriesListElement.insertBefore(thePage, referenceNode);
+            console.log(entry.score)
         })
         callback();
     });
@@ -46,7 +47,7 @@ var Books = (function() {
 			var $navPrev = $( '<span class="bk-page-prev">&lt;</span>' ),
 			$navNext = $( '<span class="bk-page-next">&gt;</span>' );	
 			$page.append( $( '<nav></nav>' ).append( $navPrev, $navNext ) );
-            $navPrev.on( 'click', function() {
+            $navPrev.on( 'click', function() { 
 				if( current > 0 ) {
 					--current;
 					$content.removeClass( 'bk-content-current' ).eq( current ).addClass( 'bk-content-current');
