@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html>
 	<head>
 		<meta charset="UTF-8" />
-		<link rel="stylesheet" href="book.css" />
+		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-        <!-- <button onclick="loadEntries()"> View the Entries! </button> -->
-
 		<div class="container">	
 			<div class="bookItem">
 				<ul id="bk-list" class="bk-list">
@@ -17,23 +15,34 @@
 								<div class="bk-cover">
 									<h2>
 									    <span>Personal Journal</span>
-                                        <button><a href="/login">Log Out</a></button>
 									</h2>
 								</div>
 							</div>
-							<div class="bk-page">
+							<div id="entry-container" class="bk-page entry-container">
                                 <div class="bk-content bk-content-current">
                                     <h2 class="chapter-title">Index</h2>
                                     <ul>
-                                        <li class="indexItem"> <a href="/book/addEntry.html"> Add Today's Entry </a> </li>
+                                        <li class="indexItem"> <a href="/book/addEntry.html"> Add Entry </a> </li>
                                         <li class="indexItem"> <a href="/book/analysis.html"> View Sentiment Analysis </a> </li>
-                                        <li class="indexItem"> <a href="/book/analysis.html"> View Previous Entries </a> </li>
+                                        View previous entries on following pages...
                                     </ul>
                                 </div>
+                                <div class="bk-content">
+                                    YOUR ENTRIES <br> (Note: most recent entry will be shown first.)
+								</div>
+                                <div id = "reference" class="bk-content">
+                                    <p> THE END </p>
+								</div>  
 							</div>
 							<div class="bk-back">
-								<p> TODO: Should anything go on the back of the journal? </p>
-							</div>
+								<p>
+                                    As your personal sentiment analysis journal, I'm here to help you. I'm not human. I can't judge you, but I can help!
+								</p>
+								<p> 
+                                    In order to enable me to best assist you, try to journal once a day. The more entries I have to analyze the better!
+									More entries means you'll be provided with more relevant resources. Now, stop reading this, and start journaling!
+								</p>
+                            </div>
 							<div class="bk-right"></div>
 							<div class="bk-left">
 								<h2>
@@ -46,17 +55,16 @@
 						<div class="bk-info">
 							<button class="bk-bookback">Flip</button>
 							<button class="bk-bookview">View inside</button>
+                            <button><a href="/login">Log Out</a></button>
 						</div>
 					</li>
 				</ul>
 			</div>
-		</div><!-- /container -->
+		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script src="book.js"></script>
 		<script>
-			$(function() {
-				Books.init();
-			});
+            loadEntries(Books.init);
 		</script>
 	</body>
 </html>
