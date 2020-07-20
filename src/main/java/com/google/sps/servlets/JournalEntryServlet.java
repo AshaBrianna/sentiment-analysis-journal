@@ -7,9 +7,6 @@ import com.google.appengine.api.datastore.*;
 import com.google.appengine.api.datastore.Query.SortDirection;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
-import com.google.appengine.api.datastore.EmbeddedEntity;
 import java.io.IOException;
 import java.util.Date;
 import java.text.DateFormat;
@@ -72,7 +69,8 @@ public final class JournalEntryServlet extends HttpServlet {
             entryEntity.setProperty("message", message);
             entryEntity.setProperty("timestamp", timestamp);
             entryEntity.setProperty("score", score);
-            datastore.put(entryEntity, userinfo.getKey());
+            DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+            datastore.put(entryEntity);
             response.sendRedirect("home.html"); 
         }
         else{
