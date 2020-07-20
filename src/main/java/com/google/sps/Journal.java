@@ -8,12 +8,12 @@ import java.io.IOException;
 
 public class Journal {
 
-    public Float sentimentAnalysis(String message) throws IOException {
+    public double sentimentAnalysis(String message) throws IOException {
         LanguageServiceClient language = LanguageServiceClient.create();
         Document doc = Document.newBuilder().setContent(message).setType(Document.Type.PLAIN_TEXT).build();
         AnalyzeSentimentResponse response = language.analyzeSentiment(doc);
         Sentiment sentiment = response.getDocumentSentiment();
-        float score = 0;
+        double score = 0;
         if (sentiment == null) {
             score = 0;
         } else {
