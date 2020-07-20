@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html>
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="book.css" />
@@ -21,7 +21,7 @@
 									</h2>
 								</div>
 							</div>
-							<div class="bk-page">
+							<div id="entry-container" class="bk-page entry-container">
                                 <div class="bk-content bk-content-current">
                                     <h2 class="chapter-title">Index</h2>
                                     <ul>
@@ -30,6 +30,12 @@
                                         <li class="indexItem"> <a href="/book/analysis.html"> View Previous Entries </a> </li>
                                     </ul>
                                 </div>
+                                <div class="bk-content">
+                                    View your previous entries on the following pages. (Note: most recent entry will be shown first.)
+								</div>
+                                <div id = "reference" class="bk-content">
+                                    <p> THE END </p>
+								</div>  
 							</div>
 							<div class="bk-back">
 								<p> TODO: Should anything go on the back of the journal? </p>
@@ -54,9 +60,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script src="book.js"></script>
 		<script>
-			$(function() {
-				Books.init();
-			});
+            loadEntries(Books.init);
 		</script>
 	</body>
 </html>
