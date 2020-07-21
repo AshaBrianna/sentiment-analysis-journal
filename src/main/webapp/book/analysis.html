@@ -4,20 +4,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title> Journal Entry Main Page</title>
-	<link rel="stylesheet" href="addEntry.css">
+	<link rel="stylesheet" href="addEntry.css">\</link>
+    <script src="/book.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="Graph.js"></script>
-	</link>
+
 </head>
 
-<body>
+<body  onload="loadEntries()">
 	<br><br><br>
 	<div id="wrapper">
 		<div id="container">
 			<section class="open-book">
 				<header>
 					<h1>Personal Journal</h1>
-					<h6>TODO: User's Name Here</h6>
 				</header>
 				<article>
 					<h2 class="chapter-title">Today's Journal Entry</h2>
@@ -36,12 +36,17 @@
 						More entries means you'll be provided with more relevant resources. Now, stop reading this, and start journaling
 					</p>
 					<br>
+                    <br>
+                    <br>
 					<br>
 					<div>
+
                     <div id="chart_div" style="width: 900px; height: 500px;"></div>
                     </div
-                    <button> <a href="index.html"> Return to Home </a> </button>
+                    <button> <a href="/home.html"> Return to Home </a> </button>
+
 				</article>
+
 				<footer>
 					<ol id="page-numbers">
 						<li>3</li>
