@@ -1,23 +1,25 @@
-google.charts.load('current', {'packages':['corechart']});
+google.charts.load('current', {'packages':['corechart', 'line']});
 google.charts.setOnLoadCallback(drawChart);
 
 
 
 function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-        ['Age', 'Weight'],
-        [8, 12],
-        [4, 5.5],
-        [11, 14],
-        [4, 5],
-        [3, 3.5],
-        [6.5, 7]
+    var data = new google.visualization.DataTable();
+    data.addColumn('date','Date');
+    data.addColumn('number', 'Score');
+
+    data.addRows([
+        [new Date(2020,07,13), -1],
+        [new Date(2020,07,14), .5],
+        [new Date(2020,07,15), 1],
+        [new Date(2020,07,16), .25]
     ]);
 
     var options = {
-        title: 'Age vs. Weight comparison',
-        hAxis: {title: 'Age', minValue: 0,maxValue: 15},
-        vAxis: {title: 'Weight', minValue: 0, maxValue: 15},
+        title: 'Score vs. Date comparison',
+        hAxis: {title: 'Date'},
+        vAxis: {title: 'Score',
+                ticks: [-1,-.5,0,.5,1]},
         legend: 'none'
     };
 
