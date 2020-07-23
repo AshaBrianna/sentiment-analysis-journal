@@ -27,16 +27,17 @@ public final class JournalEntryServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Query query = new Query(nickname).addSort("timestamp", SortDirection.DESCENDING);
+        Query query = new Query(nickname).addSort("date", SortDirection.DESCENDING);
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         PreparedQuery results = datastore.prepare(query);
         List<Entry> entries = new ArrayList<>();
         for (Entity entity : results.asIterable()) {
             long id = entity.getKey().getId();
             String message = (String) entity.getProperty("message");
-            long timestamp = (long) entity.getProperty("timestamp");
+            String date = (String) entity.getProperty("date");
             double score = (double) entity.getProperty("score");
-            Entry entryToAdd = new Entry(id, message, timestamp, score);
+            String email = (String) entity.getProperty("userEmail");
+            Entry entryToAdd = new Entry(id, message, date, score, email);
             entries.add(entryToAdd);
         }
         Gson gson = new Gson();
@@ -58,17 +59,15 @@ public final class JournalEntryServlet extends HttpServlet {
         
             // Get the input from the form.
             String message = request.getParameter("message");
-            if (nickname == null) {
-            response.sendRedirect("/nickname");
-            return;
-            }
-            long timestamp = System.currentTimeMillis();
+            String date = request.getParameter("date");
             double score = sentiment.sentimentAnalysis(message);
+            String email = userService.getCurrentUser().getEmail();
 
             Entity entryEntity = new Entity(nickname);
             entryEntity.setProperty("message", message);
-            entryEntity.setProperty("timestamp", timestamp);
+            entryEntity.setProperty("date", date);
             entryEntity.setProperty("score", score);
+            entryEntity.setProperty("userEmail", email);
             DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
             datastore.put(entryEntity);
             response.sendRedirect("home.html"); 
@@ -92,4 +91,5 @@ public final class JournalEntryServlet extends HttpServlet {
         String nickname = (String) entity.getProperty("nickname");
         return nickname;
     }
+
 }
